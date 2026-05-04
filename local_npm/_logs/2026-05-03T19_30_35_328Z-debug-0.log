@@ -1,0 +1,12 @@
+0 verbose cli /Users/macuser/.nvm/versions/node/v22.21.1/bin/node /Users/macuser/.nvm/versions/node/v22.21.1/bin/npm
+1 info using npm@10.9.4
+2 info using node@v22.21.1
+3 silly config load:file:/Users/macuser/.nvm/versions/node/v22.21.1/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/macuser/Documents/develop/test-upload/.npmrc
+5 silly config load:file:/Users/macuser/.npmrc
+6 silly config load:file:/Users/macuser/.nvm/versions/node/v22.21.1/etc/npmrc
+7 verbose title npm run dev
+8 verbose argv "run" "dev"
+9 verbose logfile logs-max:10 dir:/Users/macuser/Documents/develop/test-upload/local_npm/_logs/2026-05-03T19_30_35_328Z-
+10 verbose logfile /Users/macuser/Documents/develop/test-upload/local_npm/_logs/2026-05-03T19_30_35_328Z-debug-0.log
+11 silly logfile done cleaning log files
