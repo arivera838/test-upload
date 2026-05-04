@@ -112,12 +112,12 @@ export default function UploadPage() {
                   <table className="min-w-full text-left">
                     <thead>
                       <tr className="border-b border-gray-100 bg-gray-50/50">
-                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 text-center">Options</th>
-                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Name</th>
-                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Mime Type</th>
-                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Tags *</th>
-                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Created At</th>
-                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Created By</th>
+                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 text-center">Opciones</th>
+                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Nombre</th>
+                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Tipo</th>
+                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Etiquetas</th>
+                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Fecha</th>
+                        <th className="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Creado Por</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-50">
@@ -143,8 +143,8 @@ export default function UploadPage() {
                           </div>
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-gray-700">No files uploaded</h3>
-                      <p className="text-sm text-gray-400 mt-1">Start by dragging files into the dropzone above</p>
+                      <h3 className="text-lg font-bold text-gray-700">No se han cargado archivos</h3>
+                      <p className="text-sm text-gray-400 mt-1">Inicie arrastrando archivos en la zona de soltar</p>
                     </div>
                   )}
                 </div>
@@ -157,12 +157,12 @@ export default function UploadPage() {
             <div className="sticky top-12 space-y-6">
               <div className="rounded-2xl bg-white p-8 shadow-md border border-gray-100 ring-1 ring-black/5">
                 <h2 className="mb-6 text-xl font-bold text-gray-800 flex items-center gap-2">
-                  Submit Form
+                  Formulario de carga
                 </h2>
 
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">Title</label>
+                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">Titulo</label>
                     <input
                       type="text"
                       {...formik.getFieldProps('title')}
@@ -200,9 +200,9 @@ export default function UploadPage() {
                         {isSubmitting ? (
                           <>
                             <Loader2 className="animate-spin" size={18} />
-                            Sending...
+                            Enviando...
                           </>
-                        ) : 'Submit Report'}
+                        ) : 'Enviar Reporte'}
                       </div>
                       {canSubmit && (
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -211,12 +211,12 @@ export default function UploadPage() {
 
                     {!allDone && files.length > 0 && (
                       <p className="mt-4 text-center text-[10px] text-orange-500 font-bold uppercase tracking-wider">
-                        Upload in progress... wait for all files.
+                        Carga en progreso... espere a todos los archivos.
                       </p>
                     )}
                     {files.length === 0 && formik.submitCount > 0 && (
                       <p className="mt-4 text-center text-[10px] text-red-500 font-bold uppercase tracking-wider">
-                        At least one file is required.
+                        Se requiere al menos un archivo.
                       </p>
                     )}
                   </div>

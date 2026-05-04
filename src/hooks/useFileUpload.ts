@@ -50,7 +50,7 @@ export const useFileUpload = () => {
         const detail = error.response?.data?.detail;
         if (typeof detail === 'string') errorMessage = detail;
         else if (Array.isArray(detail) && detail[0]?.msg) errorMessage = detail[0].msg;
-        
+
         setFiles(prev => prev.map(f => f.id === uploadable.id ? { ...f, status: 'error', error: errorMessage } : f));
       }
     } finally {
@@ -61,7 +61,7 @@ export const useFileUpload = () => {
   // Worker de Concurrencia
   useEffect(() => {
     const uploadingCount = files.filter(f => f.status === 'uploading').length;
-    
+
     if (uploadingCount < CONCURRENCY_LIMIT) {
       const nextFile = files.find(f => f.status === 'idle');
       if (nextFile) {

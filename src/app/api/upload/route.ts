@@ -4,6 +4,12 @@ export async function POST(request: Request) {
   const formData = await request.formData();
   const file = formData.get('file') as File;
 
+  if (Math.random() < 0.2) {
+    return NextResponse.json(
+      { detail: `Error aleatorio simulado al subir ${file.name}` },
+      { status: 500 }
+    );
+  }
   await new Promise((resolve) => setTimeout(resolve, Math.random() * 2000 + 1000));
 
   return NextResponse.json({

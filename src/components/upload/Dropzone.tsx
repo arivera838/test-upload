@@ -21,7 +21,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({ onFilesAdded, maxFiles, curr
     e.preventDefault();
     e.stopPropagation();
     setIsDragging(false);
-    
+
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       onFilesAdded(Array.from(e.dataTransfer.files));
     }
@@ -41,9 +41,8 @@ export const Dropzone: React.FC<DropzoneProps> = ({ onFilesAdded, maxFiles, curr
       onDragOver={handleDrag}
       onDragLeave={handleDrag}
       onDrop={handleDrop}
-      className={`relative flex min-h-[160px] cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed transition-all ${
-        isDragging ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-gray-50'
-      } ${isDisabled ? 'cursor-not-allowed opacity-50' : 'hover:border-blue-400 hover:bg-white'}`}
+      className={`relative flex min-h-[160px] cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed transition-all ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-gray-50'
+        } ${isDisabled ? 'cursor-not-allowed opacity-50' : 'hover:border-blue-400 hover:bg-white'}`}
       onClick={() => !isDisabled && document.getElementById('fileInput')?.click()}
       role="button"
       aria-label="Subir archivos"
@@ -58,16 +57,16 @@ export const Dropzone: React.FC<DropzoneProps> = ({ onFilesAdded, maxFiles, curr
         onChange={handleFileInput}
         disabled={isDisabled}
       />
-      
+
       <div className="flex flex-col items-center text-center">
         <div className="mb-3 rounded-full bg-blue-100 p-3 text-blue-600">
           <UploadCloud size={24} />
         </div>
         <p className="text-sm font-bold text-gray-700">
-          {isDragging ? '¡Suéltalos ahora!' : 'Drag and drop your files here or click to select them'}
+          {isDragging ? '¡Suéltalos ahora!' : 'Arrastra y suelta tus archivos aquí o haz clic para seleccionarlos'}
         </p>
         <p className="mt-1 text-xs text-gray-400">
-          Accepted files: pdf, image, zip • Max files allowed: {maxFiles}
+          Tipos permitidos: pdf, image, zip • Máximo de archivos: {maxFiles}
         </p>
       </div>
     </div>
