@@ -31,7 +31,7 @@ export default function UploadPage() {
     }),
     onSubmit: async (values) => {
       if (files.length === 0) return;
-      
+
       setIsSubmitting(true);
       try {
         const payload = {
@@ -96,18 +96,18 @@ export default function UploadPage() {
           {/* Main Table Section */}
           <div className="lg:col-span-8 space-y-6">
             <div className="rounded-2xl bg-white p-2 shadow-sm border border-gray-100 overflow-hidden">
-               <div className="p-4 border-b border-gray-50 flex items-center gap-2">
-                  <FolderPlus size={18} className="text-blue-600" />
-                  <h2 className="text-sm font-bold text-gray-700 uppercase tracking-widest">Document Manager</h2>
-               </div>
-              
+              <div className="p-4 border-b border-gray-50 flex items-center gap-2">
+                <FolderPlus size={18} className="text-blue-600" />
+                <h2 className="text-sm font-bold text-gray-700 uppercase tracking-widest">Document Manager</h2>
+              </div>
+
               <div className="p-6">
-                <Dropzone 
-                  onFilesAdded={handleFilesAdded} 
-                  maxFiles={10} 
-                  currentCount={files.length} 
+                <Dropzone
+                  onFilesAdded={handleFilesAdded}
+                  maxFiles={10}
+                  currentCount={files.length}
                 />
-                
+
                 <div className="mt-8 overflow-x-auto">
                   <table className="min-w-full text-left">
                     <thead>
@@ -122,11 +122,11 @@ export default function UploadPage() {
                     </thead>
                     <tbody className="divide-y divide-gray-50">
                       {files.map(item => (
-                        <FileUploadItem 
-                          key={item.id} 
-                          item={item} 
-                          onRemove={removeFile} 
-                          onRetry={retryUpload} 
+                        <FileUploadItem
+                          key={item.id}
+                          item={item}
+                          onRemove={removeFile}
+                          onRetry={retryUpload}
                           onUpdateTags={updateFileTags}
                         />
                       ))}
@@ -136,12 +136,12 @@ export default function UploadPage() {
                   {files.length === 0 && (
                     <div className="flex flex-col items-center justify-center py-20 animate-in fade-in zoom-in duration-500">
                       <div className="mb-4 rounded-full bg-gray-50 p-6 text-orange-400 ring-8 ring-gray-50/50">
-                         <div className="relative">
-                            <FolderPlus size={48} strokeWidth={1.5} />
-                            <div className="absolute -top-1 -right-1 h-4 w-4 bg-white rounded-full flex items-center justify-center">
-                               <div className="h-2 w-2 bg-orange-400 rounded-full animate-ping" />
-                            </div>
-                         </div>
+                        <div className="relative">
+                          <FolderPlus size={48} strokeWidth={1.5} />
+                          <div className="absolute -top-1 -right-1 h-4 w-4 bg-white rounded-full flex items-center justify-center">
+                            <div className="h-2 w-2 bg-orange-400 rounded-full animate-ping" />
+                          </div>
+                        </div>
                       </div>
                       <h3 className="text-lg font-bold text-gray-700">No files uploaded</h3>
                       <p className="text-sm text-gray-400 mt-1">Start by dragging files into the dropzone above</p>
@@ -157,20 +157,18 @@ export default function UploadPage() {
             <div className="sticky top-12 space-y-6">
               <div className="rounded-2xl bg-white p-8 shadow-md border border-gray-100 ring-1 ring-black/5">
                 <h2 className="mb-6 text-xl font-bold text-gray-800 flex items-center gap-2">
-                   Submit Form
+                  Submit Form
                 </h2>
-                
+
                 <div className="space-y-6">
                   <div>
                     <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">Title</label>
                     <input
-                      name="title"
                       type="text"
                       {...formik.getFieldProps('title')}
                       placeholder="Enter a descriptive title"
-                      className={`mt-2 w-full rounded-xl border p-4 text-sm font-medium outline-none transition-all ${
-                        formik.touched.title && formik.errors.title ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-50'
-                      }`}
+                      className={`mt-2 w-full rounded-xl border p-4 text-sm font-medium outline-none transition-all ${formik.touched.title && formik.errors.title ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-50'
+                        }`}
                     />
                     {formik.touched.title && formik.errors.title && (
                       <p className="mt-1 text-[10px] font-bold text-red-500 uppercase tracking-tighter">{formik.errors.title}</p>
@@ -180,13 +178,11 @@ export default function UploadPage() {
                   <div>
                     <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">Description</label>
                     <textarea
-                      name="description"
                       rows={5}
                       {...formik.getFieldProps('description')}
                       placeholder="Briefly explain the contents..."
-                      className={`mt-2 w-full rounded-xl border p-4 text-sm font-medium outline-none transition-all ${
-                        formik.touched.description && formik.errors.description ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-50'
-                      }`}
+                      className={`mt-2 w-full rounded-xl border p-4 text-sm font-medium outline-none transition-all ${formik.touched.description && formik.errors.description ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-50'
+                        }`}
                     />
                     {formik.touched.description && formik.errors.description && (
                       <p className="mt-1 text-[10px] font-bold text-red-500 uppercase tracking-tighter">{formik.errors.description}</p>
@@ -197,23 +193,22 @@ export default function UploadPage() {
                     <button
                       type="submit"
                       disabled={!canSubmit}
-                      className={`group relative w-full overflow-hidden rounded-xl py-4 text-sm font-black text-white transition-all ${
-                        canSubmit ? 'bg-blue-600 hover:bg-blue-700 hover:scale-[1.02] active:scale-95' : 'cursor-not-allowed bg-gray-200'
-                      }`}
+                      className={`group relative w-full overflow-hidden rounded-xl py-4 text-sm font-black text-white transition-all ${canSubmit ? 'bg-blue-600 hover:bg-blue-700 hover:scale-[1.02] active:scale-95' : 'cursor-not-allowed bg-gray-200'
+                        }`}
                     >
                       <div className="relative z-10 flex items-center justify-center gap-2 uppercase tracking-widest">
-                         {isSubmitting ? (
-                            <>
-                               <Loader2 className="animate-spin" size={18} />
-                               Sending...
-                            </>
-                         ) : 'Submit Report'}
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="animate-spin" size={18} />
+                            Sending...
+                          </>
+                        ) : 'Submit Report'}
                       </div>
                       {canSubmit && (
-                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                       )}
                     </button>
-                    
+
                     {!allDone && files.length > 0 && (
                       <p className="mt-4 text-center text-[10px] text-orange-500 font-bold uppercase tracking-wider">
                         Upload in progress... wait for all files.
